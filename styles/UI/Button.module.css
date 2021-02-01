@@ -33,3 +33,7 @@
 .disabled {
   cursor: not-allowed;
 }
+
+.inlined {
+  display: inline-block;
+}
