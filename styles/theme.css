@@ -56,6 +56,8 @@
 body {
   font-family: var(--primary-fonts);
   font-weight: normal;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -79,4 +81,17 @@ a:hover {
   font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  /* added line */
+  border: 0;
 }
