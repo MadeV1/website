@@ -36,3 +36,8 @@
   font-size: 1.5rem;
   color: var(--primary);
 }
+
+.link a {
+  display: flex;
+  align-items: center;
+}
