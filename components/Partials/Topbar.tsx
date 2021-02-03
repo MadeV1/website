@@ -4,11 +4,11 @@ import { FC } from 'react';
 import styles from '../../styles/Partials/Topbar.module.css';
 
 const Topbar: FC = () => (
-  <nav className={styles.topbar}>
-    <div className="brand">
+  <nav className={`${styles.topbar} container`}>
+    <div className={styles.brand}>
       <p>Made</p>
     </div>
-    <div>
+    <div className={styles.expand}>
       <input type="checkbox" className={styles.checkbox} id="toggler" />
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label className={styles.toggler} htmlFor="toggler">
@@ -49,7 +49,7 @@ const Topbar: FC = () => (
           </li>
           <li>
             <Link href="/inscription">
-              <a>Créer un compte</a>
+              <a className={styles.cta}>Créer un compte</a>
             </Link>
           </li>
         </ul>
