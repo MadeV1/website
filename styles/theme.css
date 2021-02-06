@@ -58,6 +58,7 @@ body {
   font-weight: normal;
   margin: 0;
   padding: 0;
+  padding-bottom: calc(8 * var(--space-unit));
 }
 
 a {
@@ -92,8 +93,13 @@ a:hover {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  /* added line */
   border: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    padding-bottom: 0;
+  }
 }
 
 @media screen and (min-width: 1440px) {
