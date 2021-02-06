@@ -1,0 +1,48 @@
+.card {
+  box-shadow: 0px 4px 12px rgba(95, 46, 234, 0.16);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.hero {
+  display: block;
+  height: 0;
+  box-sizing: border-box;
+  padding-bottom: 53%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+}
+
+.title {
+  font-size: 1.5rem;
+  padding: 0 calc(3 * var(--space-unit));
+  margin: calc(2 * var(--space-unit)) 0 0 0;
+}
+
+.subtitle {
+  font-size: 1rem;
+  text-transform: none;
+  padding: 0 calc(3 * var(--space-unit));
+  margin: 0 0 calc(1 * var(--space-unit)) 0;
+}
+
+.resume {
+  margin: 0;
+  padding: 0 calc(3 * var(--space-unit));
+  color: var(--color-paragraph);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 calc(3 * var(--space-unit));
+  margin: calc(1 * var(--space-unit)) 0 calc(2 * var(--space-unit)) 0;
+}
