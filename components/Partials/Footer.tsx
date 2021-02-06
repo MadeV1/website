@@ -41,12 +41,12 @@ const Footer: FC = () => (
         <nav>
           <ul>
             <li>
-              <Link href="mise-a-jour">
+              <Link href="/mise-a-jour">
                 <a>Mises à jours</a>
               </Link>
             </li>
             <li>
-              <Link href="regles-de-confidentialites">
+              <Link href="/regles-de-confidentialites">
                 <a>Règles de confidentialités</a>
               </Link>
             </li>
