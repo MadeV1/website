@@ -1,0 +1,50 @@
+.footer {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: calc(4 * var(--space-unit)) calc(2 * var(--space-unit));
+  margin-top: calc(8 * var(--space-unit));
+}
+
+.brand {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.brand p {
+  margin: 0;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: calc(2 * var(--space-unit)) 0;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li a {
+  display: block;
+  padding: calc(1 * var(--space-unit)) 0;
+  color: white;
+}
+
+.footer ul li a:hover {
+  color: var(--primary-light);
+}
+
+@media screen and (min-width: 1024px) {
+  .footer {
+    display: flex;
+    gap: calc(8 * var(--space-unit));
+    text-align: left;
+  }
+
+  .links {
+    display: flex;
+    gap: calc(8 * var(--space-unit));
+  }
+}
