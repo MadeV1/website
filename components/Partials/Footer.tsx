@@ -4,7 +4,7 @@ import { FC } from 'react';
 import styles from '../../styles/Partials/Footer.module.css';
 
 const Footer: FC = () => (
-  <footer className={`${styles.footer} container`}>
+  <footer className={`${styles.footer}`}>
     <div className={styles.brand}>
       <p>Made</p>
     </div>

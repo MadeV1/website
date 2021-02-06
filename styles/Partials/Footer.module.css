@@ -48,3 +48,9 @@
     gap: calc(8 * var(--space-unit));
   }
 }
+
+@media screen and (min-width: 1440px) {
+  .footer {
+    padding: calc(4 * var(--space-unit)) calc(16 * var(--space-unit));
+  }
+}
