@@ -1,0 +1,91 @@
+.twoColumnSection {
+  margin: calc(16 * var(--space-unit)) 0;
+}
+
+.twoColumnSection div > img {
+  max-width: 100%;
+}
+
+.userCards {
+  display: flex;
+  flex-direction: column;
+  gap: calc(3 * var(--space-unit));
+  margin-top: calc(3 * var(--space-unit));
+}
+
+.twoColumnSection div.userCards > div:nth-child(2) {
+  margin-left: calc(10 * var(--space-unit));
+}
+
+.twoColumnSection div.userCards > div:nth-child(3) {
+  margin-left: calc(20 * var(--space-unit));
+}
+
+.form {
+  position: relative;
+  padding-bottom: calc(6 * var(--space-unit));
+  box-sizing: border-box;
+  background: white;
+  box-shadow: 0px 4px 12px rgba(95, 46, 234, 0.16);
+  border-radius: 6px;
+  width: 100%;
+}
+
+.contactInput {
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+  resize: vertical;
+  border: none;
+  padding: calc(2 * var(--space-unit));
+  font-family: var(--primary-fonts);
+  min-height: 165px;
+}
+
+.contactSubmit {
+  color: var(--success);
+  background: none;
+  border: none;
+  position: absolute;
+  right: calc(2 * var(--space-unit));
+  bottom: calc(2 * var(--space-unit));
+  width: fit-content;
+}
+
+@media screen and (min-width: 1024px) {
+  .twoColumnSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(5 * var(--space-unit));
+  }
+
+  .twoColumnSection:first-child {
+    margin-top: calc(8 * var(--space-unit));
+  }
+
+  .twoColumnSection > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: calc(3 * var(--space-unit));
+  }
+
+  .twoColumnSection div > * {
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .buttonWrapper > * {
+    width: fit-content;
+  }
+
+  .gridReverse > div:first-child {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .gridReverse > div:nth-child(2) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
