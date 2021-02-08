@@ -2,7 +2,7 @@
   background: var(--primary);
   color: white;
   text-align: center;
-  padding: calc(4 * var(--space-unit)) calc(2 * var(--space-unit));
+  padding: calc(4 * var(--space-unit)) calc(3 * var(--space-unit));
   margin-top: calc(8 * var(--space-unit));
 }
 
