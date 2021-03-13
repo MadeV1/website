@@ -1,0 +1,31 @@
+.grid {
+  display: grid;
+  gap: calc(8 * var(--space-unit));
+}
+
+.searchBar {
+  display: flex;
+  gap: calc(2 * var(--space-unit));
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  margin: calc(4 * var(--space-unit)) 0;
+}
+
+.searchBar * {
+  outline: none;
+}
+
+.nameLabel {
+  flex-grow: 1;
+}
+
+.nameLabel > input {
+  width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

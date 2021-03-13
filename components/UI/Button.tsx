@@ -2,9 +2,14 @@ import { FC } from 'react';
 
 import style from '../../styles/UI/Button.module.css';
 
-const Button: FC = ({ children }) => {
+interface Props {
+  type?: 'button' | 'submit' | 'reset';
+}
+
+const Button: FC<Props> = ({ children, type = 'button' }) => {
   return (
-    <button type="button" className={style.button}>
+    // eslint-disable-next-line react/button-has-type
+    <button type={type} className={style.button}>
       {children}
     </button>
   );
