@@ -9,13 +9,18 @@ import ProjectCard from '@/components/UI/ProjectCard';
 import api from '@/utils/api';
 
 import PageStyles from '../../styles/Pages/Projects/Index.module.css';
-import ButtonStyles from '../../styles/UI/Button.module.css';
 import FormStyles from '../../styles/UI/Form.module.css';
 
 interface FormInputs {
   category: 'frontend' | 'backend' | 'fullstack';
   difficulty: 'easy' | 'medium' | 'hard';
   name: string;
+}
+
+interface RequestParams {
+  name?: string;
+  difficulty?: string;
+  category?: string;
 }
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -27,22 +32,6 @@ export const getStaticProps: GetStaticProps = async () => {
       initialProjects: projects.data,
     },
   };
-};
-
-const buildSearchUrl = (name: string | null, difficulty: string | null, category: string | null) => {
-  let url = `?`;
-
-  if (typeof name === 'string') {
-    url += `name=${name}&`;
-  }
-  if (typeof difficulty === 'string') {
-    url += `difficulty=${difficulty}&`;
-  }
-  if (typeof category === 'string') {
-    url += `category=${category}&`;
-  }
-
-  return url;
 };
 
 const IndexProjects = ({ initialProjects }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
@@ -67,7 +56,17 @@ const IndexProjects = ({ initialProjects }: InferGetStaticPropsType<typeof getSt
         setProjects(initialProjects);
         return;
       }
-      const response = await api.get(`projects${buildSearchUrl(name, difficulty, category)}`);
+      const params: RequestParams = {};
+      if (name) {
+        params.name = name;
+      }
+      if (difficulty) {
+        params.difficulty = difficulty;
+      }
+      if (category) {
+        params.category = category;
+      }
+      const response = await api.get('projects', { params });
       setProjects(await response.data.data);
     };
     fetchAndUpdate();
