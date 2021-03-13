@@ -10,6 +10,12 @@
   justify-content: space-between;
   width: 100%;
   margin: calc(4 * var(--space-unit)) 0;
+  flex-wrap: wrap;
+}
+
+.searchBar input,
+.searchBar select {
+  padding: calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
 }
 
 .searchBar * {
