@@ -69,10 +69,6 @@ const IndexProjects = ({ initialProjects, meta }: InferGetStaticPropsType<typeof
 
   useEffect(() => {
     const fetchAndUpdate = async () => {
-      if (!(name && category && difficulty) && page === 1) {
-        setProjects(initialProjects);
-        return;
-      }
       const params: RequestParams = { page, perPage: 9 };
       if (name) {
         params.name = name;
@@ -88,7 +84,7 @@ const IndexProjects = ({ initialProjects, meta }: InferGetStaticPropsType<typeof
       setPaginationMeta(await response.data.meta);
     };
     fetchAndUpdate();
-  }, [name, difficulty, category, page, initialProjects]);
+  }, [name, difficulty, category, page, initialProjects, meta]);
 
   return (
     <div>
@@ -102,7 +98,7 @@ const IndexProjects = ({ initialProjects, meta }: InferGetStaticPropsType<typeof
         <form className={PageStyles.searchBar} onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="categoryInput" className={FormStyles.selectLabel}>
             <select id="categoryInput" ref={register} name="category" className={FormStyles.select}>
-              <option value="" selected>
+              <option value="" defaultValue="">
                 Catégorie
               </option>
               <option value="frontend">Front-end</option>
@@ -117,7 +113,7 @@ const IndexProjects = ({ initialProjects, meta }: InferGetStaticPropsType<typeof
           </label>
           <label htmlFor="difficultyInput" className={FormStyles.selectLabel}>
             <select id="difficultyInput" ref={register} name="difficulty" className={FormStyles.select}>
-              <option value="" selected>
+              <option value="" defaultValue="">
                 Difficulté
               </option>
               <option value="easy">Facile</option>
