@@ -21,6 +21,16 @@
 .searchBar * {
   outline: none;
 }
+.searchBar label {
+  display: flex;
+}
+
+.searchBar label button[type='button'] {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary);
+}
 
 .nameLabel {
   flex-grow: 1;

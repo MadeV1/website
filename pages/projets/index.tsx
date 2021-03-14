@@ -1,3 +1,4 @@
+import { XCircle } from 'heroicons-react';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
@@ -45,14 +46,20 @@ const IndexProjects = ({ initialProjects }: InferGetStaticPropsType<typeof getSt
   const [name, setName] = useState<string>(null);
 
   const onSubmit = (data) => {
-    setName(data.name);
-    setCategory(data.category);
-    setDifficulty(data.difficulty);
+    if (data.name) {
+      setName(data.name);
+    }
+    if (data.category) {
+      setCategory(data.category);
+    }
+    if (data.difficulty) {
+      setDifficulty(data.difficulty);
+    }
   };
 
   useEffect(() => {
     const fetchAndUpdate = async () => {
-      if (name === null && category === null && difficulty === null) {
+      if (!(name && category && difficulty)) {
         setProjects(initialProjects);
         return;
       }
@@ -84,20 +91,41 @@ const IndexProjects = ({ initialProjects }: InferGetStaticPropsType<typeof getSt
         <form className={PageStyles.searchBar} onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="categoryInput" className={FormStyles.selectLabel}>
             <select id="categoryInput" ref={register} name="category" className={FormStyles.select}>
+              <option value="" selected>
+                Catégorie
+              </option>
               <option value="frontend">Front-end</option>
               <option value="backend">Back-end</option>
               <option value="fullstack">Fullstack</option>
             </select>
+            {category && (
+              <button type="button" onClick={() => setCategory(null)}>
+                <XCircle />
+              </button>
+            )}
           </label>
           <label htmlFor="difficultyInput" className={FormStyles.selectLabel}>
             <select id="difficultyInput" ref={register} name="difficulty" className={FormStyles.select}>
+              <option value="" selected>
+                Difficulté
+              </option>
               <option value="easy">Facile</option>
               <option value="medium">Intermédiare</option>
               <option value="hard">Difficile</option>
             </select>
+            {difficulty && (
+              <button type="button" onClick={() => setDifficulty(null)}>
+                <XCircle />
+              </button>
+            )}
           </label>
           <label htmlFor="nameInput" className={PageStyles.nameLabel}>
             <input type="text" id="nameInput" ref={register} name="name" className={FormStyles.inputText} />
+            {name && (
+              <button type="button" onClick={() => setName(null)}>
+                <XCircle />
+              </button>
+            )}
           </label>
           <Button type="submit">Chercher</Button>
         </form>
