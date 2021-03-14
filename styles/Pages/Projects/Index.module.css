@@ -1,0 +1,53 @@
+.grid {
+  display: grid;
+  gap: calc(8 * var(--space-unit));
+}
+
+.searchBar {
+  display: flex;
+  gap: calc(2 * var(--space-unit));
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  margin: calc(4 * var(--space-unit)) 0;
+  flex-wrap: wrap;
+}
+
+.searchBar input,
+.searchBar select {
+  padding: calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
+}
+
+.searchBar * {
+  outline: none;
+}
+.searchBar label {
+  display: flex;
+}
+
+.searchBar label button[type='button'] {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+.nameLabel {
+  flex-grow: 1;
+}
+
+.nameLabel > input {
+  width: 100%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: calc(6 * var(--space-unit)) 0 0 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

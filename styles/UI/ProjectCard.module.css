@@ -23,26 +23,31 @@
 
 .title {
   font-size: 1.5rem;
-  padding: 0 calc(3 * var(--space-unit));
+  padding: 0 calc(6 * var(--space-unit));
   margin: calc(2 * var(--space-unit)) 0 0 0;
+  text-transform: capitalize;
 }
 
 .subtitle {
   font-size: 1rem;
   text-transform: none;
-  padding: 0 calc(3 * var(--space-unit));
+  padding: 0 calc(6 * var(--space-unit));
   margin: 0 0 calc(1 * var(--space-unit)) 0;
 }
 
 .resume {
   margin: 0;
-  padding: 0 calc(3 * var(--space-unit));
+  padding: 0 calc(6 * var(--space-unit));
   color: var(--color-paragraph);
 }
 
 .actions {
   display: flex;
   justify-content: space-between;
-  padding: 0 calc(3 * var(--space-unit));
+  padding: 0 calc(6 * var(--space-unit));
   margin: calc(1 * var(--space-unit)) 0 calc(2 * var(--space-unit)) 0;
+}
+
+.difficulty {
+  text-transform: capitalize;
 }

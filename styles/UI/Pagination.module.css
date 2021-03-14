@@ -1,0 +1,33 @@
+nav.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(1 * var(--space-unit));
+}
+
+.nav button {
+  cursor: pointer;
+}
+
+.button {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-family: var(--primary-fonts);
+  font-weight: bold;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  padding: calc(1 * var(--space-unit)) calc(2 * var(--space-unit));
+  border-radius: calc(0.5 * var(--space-unit));
+}
+
+.selected {
+  background: var(--primary);
+  color: white;
+}
+
+.separator {
+  background: none;
+  border: none;
+}
