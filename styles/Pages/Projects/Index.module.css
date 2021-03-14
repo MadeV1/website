@@ -40,6 +40,12 @@
   width: 100%;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: calc(6 * var(--space-unit)) 0 0 0;
+}
+
 @media screen and (min-width: 1024px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);

@@ -6,7 +6,9 @@ import { useForm } from 'react-hook-form';
 
 import Layout from '@/components/Partials/Layout';
 import Button from '@/components/UI/Button';
+import Pagination from '@/components/UI/Pagination/Pagination';
 import ProjectCard from '@/components/UI/ProjectCard';
+import usePagination from '@/hooks/usePagination';
 import api from '@/utils/api';
 
 import PageStyles from '../../styles/Pages/Projects/Index.module.css';
@@ -22,21 +24,29 @@ interface RequestParams {
   name?: string;
   difficulty?: string;
   category?: string;
+  perPage?: number;
+  page: number;
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${process.env.BACKEND_HOST}/projects`);
+  const res = await fetch(`${process.env.BACKEND_HOST}/projects?perPage=9`);
   const projects = await res.json();
 
   return {
     props: {
       initialProjects: projects.data,
+      meta: projects.meta,
     },
   };
 };
 
-const IndexProjects = ({ initialProjects }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
+const IndexProjects = ({ initialProjects, meta }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
   const [projects, setProjects] = useState(initialProjects);
+  const [paginationMeta, setPaginationMeta] = useState(meta);
+  const { page, prevPage, nextPage, goTo: goToPage, maxPages } = usePagination({
+    initialPage: 1,
+    maxPages: paginationMeta.last_page,
+  });
 
   /* Searh bar */
   const { register, handleSubmit } = useForm<FormInputs>();
@@ -59,11 +69,11 @@ const IndexProjects = ({ initialProjects }: InferGetStaticPropsType<typeof getSt
 
   useEffect(() => {
     const fetchAndUpdate = async () => {
-      if (!(name && category && difficulty)) {
+      if (!(name && category && difficulty) && page === 1) {
         setProjects(initialProjects);
         return;
       }
-      const params: RequestParams = {};
+      const params: RequestParams = { page, perPage: 9 };
       if (name) {
         params.name = name;
       }
@@ -75,9 +85,10 @@ const IndexProjects = ({ initialProjects }: InferGetStaticPropsType<typeof getSt
       }
       const response = await api.get('projects', { params });
       setProjects(await response.data.data);
+      setPaginationMeta(await response.data.meta);
     };
     fetchAndUpdate();
-  }, [name, difficulty, category, initialProjects]);
+  }, [name, difficulty, category, page, initialProjects]);
 
   return (
     <div>
@@ -132,6 +143,9 @@ const IndexProjects = ({ initialProjects }: InferGetStaticPropsType<typeof getSt
 
         <section className={PageStyles.grid}>
           {Array.isArray(projects) && projects.map((project) => <ProjectCard project={project} key={project.id} />)}
+        </section>
+        <section className={PageStyles.pagination}>
+          <Pagination page={page} prevPage={prevPage} nextPage={nextPage} goToPage={goToPage} last={maxPages} />
         </section>
       </Layout>
     </div>
