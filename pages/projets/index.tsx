@@ -1,5 +1,5 @@
 import { XCircle } from 'heroicons-react';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const IndexProjects = ({ initialProjects, meta }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
+const IndexProjects: NextPage = ({ initialProjects, meta }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [projects, setProjects] = useState(initialProjects);
   const [paginationMeta, setPaginationMeta] = useState(meta);
   const { page, prevPage, nextPage, goTo: goToPage, maxPages } = usePagination({
