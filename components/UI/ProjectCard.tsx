@@ -24,7 +24,7 @@ const ProjectCard: FC<Props> = ({ project }) => {
       <p className={`${styles.resume}`}>{`${content?.substr(0, 200)}...`}</p>
       <footer className={styles.actions}>
         <p className={styles.difficulty}>{difficulty}</p>
-        <ButtonLink url={`/projet/${id}`}>Voir le projet</ButtonLink>
+        <ButtonLink url={`/projets/${id}`}>Voir le projet</ButtonLink>
       </footer>
     </article>
   );
