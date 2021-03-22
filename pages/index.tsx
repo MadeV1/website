@@ -42,11 +42,13 @@ const Index = (): JSX.Element => {
           </div>
           <div className={styles.userCards}>
             <UserCard
-              user={{ name: 'Mickael Ferri', job: 'UI Designer', avatar: 'https://www.blexar.com/avatar.png' }}
+              user={{ pseudonym: 'Mickael Ferri', job: 'UI Designer', avatar: 'https://www.blexar.com/avatar.png' }}
             />
-            <UserCard user={{ name: 'Thomas Belo', job: 'Développeur', avatar: 'https://www.blexar.com/avatar.png' }} />
             <UserCard
-              user={{ name: 'Sandra Saidi', job: 'Développeuse', avatar: 'https://www.blexar.com/avatar.png' }}
+              user={{ pseudonym: 'Thomas Belo', job: 'Développeur', avatar: 'https://www.blexar.com/avatar.png' }}
+            />
+            <UserCard
+              user={{ pseudonym: 'Sandra Saidi', job: 'Développeuse', avatar: 'https://www.blexar.com/avatar.png' }}
             />
           </div>
         </section>
