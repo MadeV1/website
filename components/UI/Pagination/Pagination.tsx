@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight } from 'heroicons-react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import React, { FC } from 'react';
 
 import PaginationButton from '@/components/UI/Pagination/PaginationButton';
@@ -72,7 +72,7 @@ const Pagination: FC<Props> = ({ page, prevPage, nextPage, goToPage, last = 0 })
     <nav className={PaginationStyles.nav} aria-label="Pagination">
       <PaginationButton onClick={() => prevPage()}>
         <span className="sr-only">Previous</span>
-        <ChevronLeft className="h-5 w-5" fill="currentColor" />
+        <ChevronLeftIcon className="h-5 w-5" fill="currentColor" />
       </PaginationButton>
       {left}
       {middle.length > 0 || right.length > 0 ? <Separator /> : ''}
@@ -81,7 +81,7 @@ const Pagination: FC<Props> = ({ page, prevPage, nextPage, goToPage, last = 0 })
       {right}
       <PaginationButton onClick={() => nextPage()}>
         <span className="sr-only">Next</span>
-        <ChevronRight className="h-5 w-5" fill="currentColor" />
+        <ChevronRightIcon className="h-5 w-5" fill="currentColor" />
       </PaginationButton>
     </nav>
   );

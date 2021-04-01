@@ -1,4 +1,4 @@
-import { XCircle } from 'heroicons-react';
+import { XCircleIcon } from '@heroicons/react/solid';
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
@@ -107,7 +107,7 @@ const IndexProjects: NextPage = ({ initialProjects, meta }: InferGetStaticPropsT
             </select>
             {category && (
               <button type="button" onClick={() => setCategory(null)}>
-                <XCircle />
+                <XCircleIcon />
               </button>
             )}
           </label>
@@ -122,7 +122,7 @@ const IndexProjects: NextPage = ({ initialProjects, meta }: InferGetStaticPropsT
             </select>
             {difficulty && (
               <button type="button" onClick={() => setDifficulty(null)}>
-                <XCircle />
+                <XCircleIcon />
               </button>
             )}
           </label>
@@ -130,7 +130,7 @@ const IndexProjects: NextPage = ({ initialProjects, meta }: InferGetStaticPropsT
             <input type="text" id="nameInput" ref={register} name="name" className={FormStyles.inputText} />
             {name && (
               <button type="button" onClick={() => setName(null)}>
-                <XCircle />
+                <XCircleIcon />
               </button>
             )}
           </label>
