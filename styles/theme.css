@@ -1,0 +1,139 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+:root {
+  /* Colors */
+  --primary-light: #ded3ff;
+  --primary: #5f2eea;
+  --primary-dark: #2a00a2;
+
+  --secondary-light: #d5f7ff;
+  --secondary: #1cc8ee;
+  --secondary-dark: #0096b7;
+
+  --error: #ed2e45;
+  --success: #00ba88;
+  --warning: #f4b740;
+
+  --color-title: #14142b;
+  --color-paragraph: #4e4b66;
+  --color-subtitle: #6e7191;
+  --color-placeholder: #a0a3bd;
+
+  /* Fonts */
+  --primary-fonts: 'Poppins', sans-serif;
+
+  /* Miscellaneous */
+  --space-unit: 8px;
+  --shadow: 0px 4px 12px rgba(95, 46, 234, 0.16);
+}
+
+body {
+  font-family: var(--primary-fonts);
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  padding-bottom: calc(8 * var(--space-unit));
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: all ease-in-out 0.2s;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+.title {
+  color: var(--color-title);
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+h2.title {
+  font-size: 1.5rem;
+}
+
+.subtitle {
+  color: var(--color-subtitle);
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container {
+  padding: 0 calc(2 * var(--space-unit));
+}
+
+main.container {
+  padding-top: calc(4 * var(--space-unit));
+  padding-bottom: calc(4 * var(--space-unit));
+}
+
+p {
+  color: var(--color-paragraph);
+}
+
+.centered {
+  text-align: center;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    padding-bottom: 0;
+  }
+  .container {
+    padding: 0 calc(3 * var(--space-unit));
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    padding: 0 calc(16 * var(--space-unit));
+  }
+}

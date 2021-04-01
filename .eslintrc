@@ -43,7 +43,8 @@
         "assert": "both",
         "depth": 3
       }
-    ]
+    ],
+    "css-modules/no-unused-class": "off"
   },
   "settings": {
     "import/resolver": {
@@ -52,6 +53,7 @@
       },
       "typescript": {}
     },
+    "import/ignore": [".css$", "node_modules/*"],
     "react": {
       "version": "detect"
     }

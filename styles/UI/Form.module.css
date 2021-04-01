@@ -1,0 +1,26 @@
+.inputText {
+  border: 2px solid var(--primary);
+  border-radius: calc(1 * var(--space-unit));
+  background: white;
+  height: 100%;
+}
+
+.selectLabel {
+  display: flex;
+  align-items: stretch;
+}
+
+.select {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid var(--primary);
+  border-radius: calc(1 * var(--space-unit));
+  padding: 0 calc(1 * var(--space-unit));
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+}
