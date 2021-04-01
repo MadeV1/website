@@ -1,4 +1,4 @@
-import { ChevronRight } from 'heroicons-react';
+import { ChevronRightIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import { FC } from 'react';
 
@@ -25,7 +25,7 @@ const UserCard: FC<Props> = ({ user }) => {
       <div className={styles.link}>
         <Link href={`/profile/${user.pseudonym}`}>
           <a>
-            <ChevronRight />
+            <ChevronRightIcon />
           </a>
         </Link>
       </div>
