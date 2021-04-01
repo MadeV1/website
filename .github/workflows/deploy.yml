@@ -31,5 +31,5 @@ jobs:
           port: ${{ secrets.REMOTE_PORT }}
           script: |
             cd ${{ secrets.TARGET }}
-            npm ci --production
+            npm install --force
             npm run build --if-present
