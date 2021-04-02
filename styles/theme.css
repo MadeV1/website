@@ -40,6 +40,8 @@
   --success: #00ba88;
   --warning: #f4b740;
 
+  --gray--light: #f7f7fc;
+
   --color-title: #14142b;
   --color-paragraph: #4e4b66;
   --color-subtitle: #6e7191;
@@ -102,6 +104,8 @@ h2.title {
 
 .container {
   padding: 0 calc(2 * var(--space-unit));
+  max-width: 1440px;
+  margin: auto;
 }
 
 main.container {
