@@ -5,6 +5,13 @@
   height: 100%;
 }
 
+.flatInputText {
+  background-color: var(--gray--light);
+  border: none;
+  border-radius: var(--space-unit);
+  padding: calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
+}
+
 .selectLabel {
   display: flex;
   align-items: stretch;
@@ -23,4 +30,16 @@
   cursor: inherit;
   line-height: inherit;
   outline: none;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-unit);
+}
+
+.stackedInputs {
+  display: flex;
+  flex-direction: column;
+  gap: calc(4 * var(--space-unit));
 }
