@@ -4,12 +4,12 @@ import { ButtonProps } from '@/types/Props/ButtonProps';
 
 import styles from '../../styles/UI/Button.module.css';
 
-const ButtonOutline: FC<ButtonProps> = ({ children, type = 'button' }) => {
+const ButtonPlain: FC<ButtonProps> = ({ children, type = 'button' }) => {
   return (
-    <button type={type} className={`${styles.button} ${styles.outline}`}>
+    <button type={type} className={`${styles.button} ${styles.plainButton}`}>
       {children}
     </button>
   );
 };
 
-export default ButtonOutline;
+export default ButtonPlain;

@@ -1,15 +1,11 @@
 import { FC } from 'react';
 
+import { ButtonProps } from '@/types/Props/ButtonProps';
+
 import style from '../../styles/UI/Button.module.css';
 
-interface Props {
-  type?: 'button' | 'submit' | 'reset';
-  onClick?: () => void;
-}
-
-const Button: FC<Props> = ({ children, type = 'button', onClick }) => {
+const Button: FC<ButtonProps> = ({ children, type = 'button', onClick }) => {
   return (
-    // eslint-disable-next-line react/button-has-type
     <button type={type} className={style.button} onClick={onClick}>
       {children}
     </button>
