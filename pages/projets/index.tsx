@@ -107,7 +107,7 @@ const IndexProjects: NextPage = ({ initialProjects, meta }: InferGetStaticPropsT
             </select>
             {category && (
               <button type="button" onClick={() => setCategory('')}>
-                <XCircleIcon />
+                <XCircleIcon className="h-5 w-5" />
               </button>
             )}
           </label>
@@ -122,7 +122,7 @@ const IndexProjects: NextPage = ({ initialProjects, meta }: InferGetStaticPropsT
             </select>
             {difficulty && (
               <button type="button" onClick={() => setDifficulty('')}>
-                <XCircleIcon />
+                <XCircleIcon className="h-5 w-5" />
               </button>
             )}
           </label>
@@ -130,7 +130,7 @@ const IndexProjects: NextPage = ({ initialProjects, meta }: InferGetStaticPropsT
             <input type="text" id="nameInput" ref={register} name="name" className={FormStyles.inputText} />
             {name && (
               <button type="button" onClick={() => setName('')}>
-                <XCircleIcon />
+                <XCircleIcon className="h-5 w-5" />
               </button>
             )}
           </label>

@@ -25,7 +25,7 @@ const UserCard: FC<Props> = ({ user }) => {
       <div className={styles.link}>
         <Link href={`/profile/${user.pseudonym}`}>
           <a>
-            <ChevronRightIcon />
+            <ChevronRightIcon className="h-5 w-5" />
           </a>
         </Link>
       </div>
