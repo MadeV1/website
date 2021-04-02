@@ -19,7 +19,8 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-hook-form": "^6.15.4",
-    "sass": "^1.32.5"
+    "sass": "^1.32.5",
+    "zod": "^1.11.13"
   },
   "devDependencies": {
     "@emotion/eslint-plugin": "^11.0.0",
