@@ -17,7 +17,7 @@ interface FormInputs {
 }
 
 const RegisterPage: NextPage = () => {
-  const { register } = useForm<FormInputs>();
+  const { register, handleSubmit, errors } = useForm<FormInputs>();
 
   return (
     <>
@@ -40,13 +40,27 @@ const RegisterPage: NextPage = () => {
                     id="pseudonymInput"
                     name="pseudonym"
                     type="text"
-                    ref={register}
-                    className={FormStyles.flatInputText}
+                    ref={register({ required: true, minLength: 3 })}
+                    className={`${FormStyles.flatInputText} ${errors.pseudonym && FormStyles.flatInputTextError}`}
+                    required
                   />
+                  {errors.pseudonym && (
+                    <p className={FormStyles.textError}>
+                      Votre nom d&apos;utilisateur doit contenir au minimum 3 caractères.
+                    </p>
+                  )}
                 </label>
                 <label htmlFor="mailInput" className={FormStyles.label}>
                   Adresse mail
-                  <input id="mailInput" name="email" type="email" ref={register} className={FormStyles.flatInputText} />
+                  <input
+                    id="mailInput"
+                    name="email"
+                    type="email"
+                    ref={register({ required: true, maxLength: 255 })}
+                    className={`${FormStyles.flatInputText} ${errors.email && FormStyles.flatInputTextError}`}
+                    required
+                  />
+                  {errors.email && <p className={FormStyles.textError}>Veuillez renseigner une adresse email valide</p>}
                 </label>
                 <label htmlFor="passwordInput" className={FormStyles.label}>
                   Mot de passe
@@ -54,9 +68,15 @@ const RegisterPage: NextPage = () => {
                     id="passwordInput"
                     name="password"
                     type="password"
-                    ref={register}
-                    className={FormStyles.flatInputText}
+                    ref={register({ required: true, minLength: 6 })}
+                    className={`${FormStyles.flatInputText} ${errors.password && FormStyles.flatInputTextError}`}
+                    required
                   />
+                  {errors?.password && (
+                    <p className={FormStyles.textError}>
+                      Ce champ est requis et doit être d&apos;une longueur minimale de 6 caractères.
+                    </p>
+                  )}
                 </label>
                 <label htmlFor="confirmPasswordInput" className={FormStyles.label}>
                   Confirmation du mot de passe
@@ -64,9 +84,16 @@ const RegisterPage: NextPage = () => {
                     id="confirmPasswordInput"
                     name="passwordConfirm"
                     type="password"
-                    ref={register}
-                    className={FormStyles.flatInputText}
+                    ref={register({ required: true, minLength: 6 })}
+                    className={`${FormStyles.flatInputText} ${errors.passwordConfirm && FormStyles.flatInputTextError}`}
+                    required
                   />
+                  {errors?.password && (
+                    <p className={FormStyles.textError}>
+                      Ce champ est requis et doit être d&apos;une longueur minimale de 6 caractères. Les mots de passes
+                      doivent correspondre.
+                    </p>
+                  )}
                 </label>
               </div>
               <ButtonPlain type="submit">S&apos;inscrire</ButtonPlain>
