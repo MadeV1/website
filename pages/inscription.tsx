@@ -145,10 +145,9 @@ const RegisterPage: NextPage = () => {
                     }`}
                     required
                   />
-                  {errors?.password && (
+                  {errors?.password_confirmation && (
                     <p className={FormStyles.textError}>
-                      Ce champ est requis et doit être d&apos;une longueur minimale de 6 caractères. Les mots de passes
-                      doivent correspondre.
+                      Ce champ est requis et doit être d&apos;une longueur minimale de 6 caractères.
                     </p>
                   )}
                 </label>
