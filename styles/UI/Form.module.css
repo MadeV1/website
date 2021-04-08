@@ -12,6 +12,14 @@
   padding: calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
 }
 
+.flatInputTextError {
+  border: 2px solid red;
+}
+
+.textError {
+  color: red;
+}
+
 .selectLabel {
   display: flex;
   align-items: stretch;
