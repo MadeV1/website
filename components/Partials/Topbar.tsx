@@ -1,9 +1,14 @@
 import Link from 'next/link';
+import { signOut, useSession } from 'next-auth/client';
 import { FC } from 'react';
+
+import Button from '@/components/UI/Button';
 
 import styles from '../../styles/Partials/Topbar.module.css';
 
 const Topbar: FC = () => {
+  const [session] = useSession();
+
   return (
     <nav className={`${styles.topbar} container`}>
       <div className={styles.brand}>
@@ -45,16 +50,25 @@ const Topbar: FC = () => {
             </li>
           </ul>
           <ul>
-            <li>
-              <Link href="/connexion">
-                <a>Se connecter</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/inscription">
-                <a className={styles.cta}>Créer un compte</a>
-              </Link>
-            </li>
+            {!session && (
+              <>
+                <li>
+                  <Link href="/connexion">
+                    <a>Se connecter</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/inscription">
+                    <a className={styles.cta}>Créer un compte</a>
+                  </Link>
+                </li>
+              </>
+            )}
+            {session && (
+              <li>
+                <Button onClick={() => signOut()}>Se déconnecter</Button>
+              </li>
+            )}
           </ul>
         </div>
       </div>
