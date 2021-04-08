@@ -7,7 +7,7 @@ import Layout from '@/components/Partials/Layout';
 const ProfilePage: NextPage = () => {
   const [session, loading] = useSession();
 
-  if (!loading && session.user) {
+  if (!loading && session?.user) {
     return (
       <>
         <Head>
