@@ -51,11 +51,11 @@ const IndexProjects: NextPage = ({ initialProjects, meta }: InferGetStaticPropsT
   /* Searh bar */
   const { register, handleSubmit } = useForm<FormInputs>();
 
-  const [difficulty, setDifficulty] = useState<string>(null);
-  const [category, setCategory] = useState<string>(null);
-  const [name, setName] = useState<string>(null);
+  const [difficulty, setDifficulty] = useState<string>('');
+  const [category, setCategory] = useState<string>('');
+  const [name, setName] = useState<string>('');
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: FormInputs) => {
     if (data.name) {
       setName(data.name);
     }
@@ -106,8 +106,8 @@ const IndexProjects: NextPage = ({ initialProjects, meta }: InferGetStaticPropsT
               <option value="fullstack">Fullstack</option>
             </select>
             {category && (
-              <button type="button" onClick={() => setCategory(null)}>
-                <XCircleIcon />
+              <button type="button" onClick={() => setCategory('')}>
+                <XCircleIcon className="h-5 w-5" />
               </button>
             )}
           </label>
@@ -121,16 +121,16 @@ const IndexProjects: NextPage = ({ initialProjects, meta }: InferGetStaticPropsT
               <option value="hard">Difficile</option>
             </select>
             {difficulty && (
-              <button type="button" onClick={() => setDifficulty(null)}>
-                <XCircleIcon />
+              <button type="button" onClick={() => setDifficulty('')}>
+                <XCircleIcon className="h-5 w-5" />
               </button>
             )}
           </label>
           <label htmlFor="nameInput" className={PageStyles.nameLabel}>
             <input type="text" id="nameInput" ref={register} name="name" className={FormStyles.inputText} />
             {name && (
-              <button type="button" onClick={() => setName(null)}>
-                <XCircleIcon />
+              <button type="button" onClick={() => setName('')}>
+                <XCircleIcon className="h-5 w-5" />
               </button>
             )}
           </label>

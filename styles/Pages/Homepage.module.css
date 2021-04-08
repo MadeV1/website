@@ -3,6 +3,7 @@
 }
 
 .twoColumnSection div > img {
+  margin: auto;
   max-width: 100%;
 }
 

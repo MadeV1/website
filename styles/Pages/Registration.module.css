@@ -1,0 +1,36 @@
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: calc(4 * var(--space-unit));
+}
+
+.form button {
+  margin-top: calc(3 * var(--space-unit));
+}
+
+.paragraph {
+  line-height: 2.25rem;
+}
+@media screen and (min-width: 1024px) {
+  .grid {
+    display: grid;
+    grid-template-areas:
+      'title form'
+      'paragraph form';
+    grid-template-rows: auto 1fr;
+    grid-template-columns: minmax(350px, 5fr) 4fr;
+    gap: calc(4 * var(--space-unit)) calc(20 * var(--space-unit));
+  }
+
+  .form {
+    grid-area: form;
+  }
+
+  .title {
+    grid-area: title;
+  }
+
+  .paragraph {
+    grid-area: paragraph;
+  }
+}
