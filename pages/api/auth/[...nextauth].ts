@@ -14,11 +14,8 @@ export default NextAuth({
       },
       async authorize(credentials) {
         try {
-          const user = await api.post<User>('/login', { email: credentials.email, password: credentials.password });
-          if (user) {
-            return user.data;
-          }
-          return null;
+          const response = await api.post<User>('/login', { email: credentials.email, password: credentials.password });
+          return { name: response.data.pseudonym, email: response.data.email };
         } catch (error) {
           if (error.response) {
             return null;

@@ -1,7 +1,8 @@
 /* Topbar */
 .topbar {
   background-color: var(--primary);
-  margin: 0 inherit;
+  margin-top: 0;
+  margin-bottom: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
