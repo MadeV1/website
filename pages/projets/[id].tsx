@@ -1,26 +1,39 @@
-import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next';
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext, InferGetServerSidePropsType, NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 
 import Layout from '@/components/Partials/Layout';
 import ButtonLink from '@/components/UI/ButtonLink';
 import UserCard from '@/components/UI/UserCard';
+import { Project } from '@/types/Project';
+import api from '@/utils/api';
 
 import PageStyles from '../../styles/Pages/Projects/Show.module.css';
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { id } = context.query;
-  const res = await fetch(`${process.env.BACKEND_HOST}/projects/${id}`);
-  const project = await res.json();
+export const getStaticPaths: GetStaticPaths = async () => {
+  const { data } = await api.get('/projects');
 
   return {
-    props: {
-      project,
-    },
+    paths: data.map((project: Project) => ({
+      params: {
+        id: project.id.toString(),
+      },
+    })),
+    fallback: false,
   };
 };
 
-const ShowProjectPage: NextPage = ({ project }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+export const getStaticProps: GetStaticProps = async ({ params }: GetStaticPropsContext) => {
+  const { data } = await api.get<Project>(`/projects/${params?.id}`);
+  return {
+    props: {
+      project: data,
+    },
+    revalidate: 1,
+  };
+};
+
+const ShowProjectPage: NextPage = ({ project }: InferGetServerSidePropsType<typeof getStaticProps>) => {
   return (
     <>
       <Head>
