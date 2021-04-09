@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 
 import Layout from '@/components/Partials/Layout';
 import ButtonLink from '@/components/UI/ButtonLink';
@@ -15,28 +16,28 @@ const Index = (): JSX.Element => {
 
       <Layout>
         <section className={styles.twoColumnSection}>
-          <div>
+          <div className={styles.content}>
             <h1 className="title">C&apos;est quoi Made ?</h1>
             <p>
               Trouve des idées diverses de projet, obtient les maquettes et la correction puis présente tous ça à tes
               futurs clients.
             </p>
-            <div className={styles.buttonWrapper}>
+            <div className={`${styles.buttonWrapper} mx-auto lg:mx-0 mb-8 lg:mb-0`}>
               <ButtonLink url="/projets">Voir les projets</ButtonLink>
             </div>
           </div>
-          <div>
-            <img src="img/design/drawings/projets.svg" alt="Tableau de posts-it" />
+          <div className="flex justify-center">
+            <Image src="/img/design/drawings/projets.svg" width={419} height={351} alt="Tableau de posts-it" />
           </div>
         </section>
 
         <section className={`${styles.twoColumnSection} ${styles.gridReverse}`}>
-          <div>
+          <div className={styles.content}>
             <h1 className="title">Espace communauté</h1>
             <p>
               Crée ton profil afin de poster tes projets et pouvoir être vu et contacté par d&apos;autres utilisateurs.
             </p>
-            <div className={styles.buttonWrapper}>
+            <div className={`${styles.buttonWrapper} mx-auto lg:mx-0 mb-8 lg:mb-0`}>
               <ButtonLink url="/profil">Créer mon profil</ButtonLink>
             </div>
           </div>
@@ -56,9 +57,9 @@ const Index = (): JSX.Element => {
         <section>
           <h1 className="title centered">Made c&apos;est aussi ça...</h1>
           <div className={styles.twoColumnSection}>
-            <div className="centered">
+            <div className={`${styles.content} centered`}>
               <div>
-                <img src="/img/design/drawings/entraide.svg" alt="Mains qui se serrent" />
+                <Image src="/img/design/drawings/entraide.svg" alt="Mains qui se serrent" width={138} height={142} />
               </div>
               <h2 className="title">Une communauté d&apos;entraide</h2>
               <p>
@@ -67,9 +68,14 @@ const Index = (): JSX.Element => {
               </p>
             </div>
 
-            <div className="centered">
+            <div className={`${styles.content} centered mt-16 lg:mt-0`}>
               <div>
-                <img src="/img/design/drawings/apprentissage.svg" alt="Cible avec fléchette" />
+                <Image
+                  src="/img/design/drawings/apprentissage.svg"
+                  alt="Cible avec fléchette"
+                  width={138}
+                  height={142}
+                />
               </div>
               <h2 className="title">Un endroit d&apos;apprentissage</h2>
               <p>Vous pouvez apprendre très simplement grâce aux projets fournis par la communauté et nous-même.</p>
@@ -78,7 +84,7 @@ const Index = (): JSX.Element => {
         </section>
 
         <section className={styles.twoColumnSection}>
-          <div>
+          <div className={styles.content}>
             <h1 className="title">Nous contacter</h1>
             <p>
               Tu as besoin d&apos;aide pour réaliser des actions sur Made, des bus sont survenus subitements et tu
@@ -92,7 +98,9 @@ const Index = (): JSX.Element => {
             </form>
           </div>
           <div>
-            <img src="/img/design/drawings/contact.svg" alt="Cible avec fléchette" />
+            <div className="flex justify-center mt-16 lg:mt-0">
+              <Image src="/img/design/drawings/contact.svg" alt="Cible avec fléchette" width={444} height={411} />
+            </div>
           </div>
         </section>
       </Layout>

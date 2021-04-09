@@ -2,6 +2,17 @@
   margin: calc(16 * var(--space-unit)) 0;
 }
 
+.twoColumnSection h1,
+.twoColumnSection p {
+  text-align: center;
+}
+
+.twoColumnSection .content {
+  display: flex;
+  flex-direction: column;
+  gap: calc(2 * var(--space-unit));
+}
+
 .twoColumnSection div > img {
   margin: auto;
   max-width: 100%;
@@ -12,14 +23,26 @@
   flex-direction: column;
   gap: calc(3 * var(--space-unit));
   margin-top: calc(3 * var(--space-unit));
+  justify-content: center;
+  align-items: center;
 }
 
-.twoColumnSection div.userCards > div:nth-child(2) {
-  margin-left: calc(10 * var(--space-unit));
+.twoColumnSection div.userCards > div {
+  margin: auto;
 }
 
-.twoColumnSection div.userCards > div:nth-child(3) {
-  margin-left: calc(20 * var(--space-unit));
+@media screen and (min-width: 768px) {
+  .twoColumnSection div.userCards > div {
+    margin-left: 0;
+  }
+
+  .twoColumnSection div.userCards > div:nth-child(2) {
+    margin-left: calc(10 * var(--space-unit));
+  }
+
+  .twoColumnSection div.userCards > div:nth-child(3) {
+    margin-left: calc(20 * var(--space-unit));
+  }
 }
 
 .form {
@@ -58,6 +81,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: calc(5 * var(--space-unit));
+  }
+
+  .twoColumnSection h1,
+  .twoColumnSection p {
+    text-align: left;
   }
 
   .twoColumnSection:first-child {
