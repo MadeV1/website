@@ -1,4 +1,5 @@
 import { ChevronRightIcon } from '@heroicons/react/solid';
+import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
 
@@ -16,7 +17,7 @@ const UserCard: FC<Props> = ({ user }) => {
   return (
     <div className={styles.card}>
       <div className={styles.avatar}>
-        <img src="https://picsum.photos/128/128" alt={`Avatar de ${user.pseudonym}`} />
+        <Image src="https://picsum.photos/128/128" alt={`Avatar de ${user.pseudonym}`} width={128} height={128} />
       </div>
       <div>
         <dt className={`subtitle ${styles.title}`}>{user.pseudonym}</dt>
