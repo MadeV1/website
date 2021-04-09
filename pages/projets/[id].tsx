@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps, GetStaticPropsContext, InferGetServerSidePropsType, NextPage } from 'next';
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: GetStaticPropsC
   };
 };
 
-const ShowProjectPage: NextPage = ({ project }: InferGetServerSidePropsType<typeof getStaticProps>) => {
+const ShowProjectPage: NextPage = ({ project }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Head>
