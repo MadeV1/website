@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { FC } from 'react';
-
-import styles from '../../styles/Partials/Footer.module.css';
+import styles from 'styles/Partials/Footer.module.css';
 
 const Footer: FC = () => (
   <footer className={`${styles.footer}`}>

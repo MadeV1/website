@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { FC } from 'react';
-
-import styles from '../../styles/UI/Button.module.css';
+import styles from 'styles/UI/Button.module.css';
 
 interface Props {
   url: string;

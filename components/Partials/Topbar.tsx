@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/client';
 import { FC } from 'react';
+import styles from 'styles/Partials/Topbar.module.css';
 
 import Button from '@/components/UI/Button';
-
-import styles from '../../styles/Partials/Topbar.module.css';
 
 const Topbar: FC = () => {
   const [session] = useSession();

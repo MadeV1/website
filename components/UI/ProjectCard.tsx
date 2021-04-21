@@ -1,9 +1,8 @@
 import { FC } from 'react';
+import styles from 'styles/UI/ProjectCard.module.css';
 
 import ButtonLink from '@/components/UI/ButtonLink';
 import { Project } from '@/types/Project';
-
-import styles from '../../styles/UI/ProjectCard.module.css';
 
 interface Props {
   project: Project;

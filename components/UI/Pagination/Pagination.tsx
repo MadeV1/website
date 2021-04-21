@@ -1,10 +1,9 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import React, { FC } from 'react';
+import PaginationStyles from 'styles/UI/Pagination.module.css';
 
 import PaginationButton from '@/components/UI/Pagination/PaginationButton';
 import Separator from '@/components/UI/Pagination/PaginationSeparator';
-
-import PaginationStyles from '../../../styles/UI/Pagination.module.css';
 
 interface Props {
   page: number;

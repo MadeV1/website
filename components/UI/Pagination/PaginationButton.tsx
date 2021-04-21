@@ -1,6 +1,5 @@
 import { FC } from 'react';
-
-import PaginationStyles from '../../../styles/UI/Pagination.module.css';
+import PaginationStyles from 'styles/UI/Pagination.module.css';
 
 interface Props {
   onClick: () => void;

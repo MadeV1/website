@@ -2,8 +2,7 @@ import { ChevronRightIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
-
-import styles from '../../styles/UI/UserCard.module.css';
+import styles from 'styles/UI/UserCard.module.css';
 
 interface Props {
   user: {

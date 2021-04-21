@@ -1,8 +1,7 @@
 import { FC } from 'react';
+import styles from 'styles/UI/Button.module.css';
 
 import { ButtonProps } from '@/types/Props/ButtonProps';
-
-import styles from '../../styles/UI/Button.module.css';
 
 const ButtonOutline: FC<ButtonProps> = ({ children, type = 'button' }) => {
   return (
