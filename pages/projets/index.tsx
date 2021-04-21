@@ -97,7 +97,7 @@ const IndexProjects: NextPage = ({ initialProjects, meta }: InferGetStaticPropsT
 
         <form className={PageStyles.searchBar} onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="categoryInput" className={FormStyles.selectLabel}>
-            <select id="categoryInput" ref={register} name="category" className={FormStyles.select}>
+            <select id="categoryInput" {...register('category')} name="category" className={FormStyles.select}>
               <option value="" defaultValue="">
                 Catégorie
               </option>
@@ -112,7 +112,7 @@ const IndexProjects: NextPage = ({ initialProjects, meta }: InferGetStaticPropsT
             )}
           </label>
           <label htmlFor="difficultyInput" className={FormStyles.selectLabel}>
-            <select id="difficultyInput" ref={register} name="difficulty" className={FormStyles.select}>
+            <select id="difficultyInput" {...register('difficulty')} name="difficulty" className={FormStyles.select}>
               <option value="" defaultValue="">
                 Difficulté
               </option>
@@ -127,7 +127,7 @@ const IndexProjects: NextPage = ({ initialProjects, meta }: InferGetStaticPropsT
             )}
           </label>
           <label htmlFor="nameInput" className={PageStyles.nameLabel}>
-            <input type="text" id="nameInput" ref={register} name="name" className={FormStyles.inputText} />
+            <input type="text" id="nameInput" {...register('name')} name="name" className={FormStyles.inputText} />
             {name && (
               <button type="button" onClick={() => setName('')}>
                 <XCircleIcon className="h-5 w-5" />

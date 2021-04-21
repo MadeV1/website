@@ -19,7 +19,11 @@ interface FormInputs {
 }
 
 const ConnexionPage: NextPage = () => {
-  const { register, handleSubmit, errors } = useForm<FormInputs>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormInputs>();
   const [loginError, setLoginError] = useState<string>();
   const router = useRouter();
 
@@ -50,9 +54,8 @@ const ConnexionPage: NextPage = () => {
                   Email
                   <input
                     id="emailInput"
-                    name="email"
                     type="email"
-                    ref={register({ required: true, minLength: 3 })}
+                    {...register('email', { required: true, minLength: 3 })}
                     className={`${FormStyles.flatInputText}`}
                     required
                   />
@@ -61,9 +64,8 @@ const ConnexionPage: NextPage = () => {
                   Mot de passe
                   <input
                     id="passwordInput"
-                    name="password"
                     type="password"
-                    ref={register({ required: true, minLength: 6 })}
+                    {...register('password', { required: true, minLength: 6 })}
                     className={`${FormStyles.flatInputText} ${errors.password && FormStyles.flatInputTextError}`}
                     required
                   />

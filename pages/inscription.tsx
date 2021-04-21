@@ -32,7 +32,11 @@ interface PasswordError extends AdonisError {
 }
 
 const RegisterPage: NextPage = () => {
-  const { register, handleSubmit, errors } = useForm<RegisterPayload>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisterPayload>();
   const [emailErrors, setEmailErrors] = useState<Array<EmailError>>();
   const [pseudonymErrors, setPseudonymErrors] = useState<Array<PseudonymError>>();
   const [passwordErrors, setPasswordErrors] = useState<Array<PasswordError>>();
@@ -72,9 +76,8 @@ const RegisterPage: NextPage = () => {
                   Pseudo
                   <input
                     id="pseudonymInput"
-                    name="pseudonym"
                     type="text"
-                    ref={register({ required: true, minLength: 3 })}
+                    {...register('pseudonym', { required: true, minLength: 3 })}
                     className={`${FormStyles.flatInputText} ${errors.pseudonym && FormStyles.flatInputTextError}`}
                     required
                   />
@@ -95,9 +98,8 @@ const RegisterPage: NextPage = () => {
                   Adresse mail
                   <input
                     id="mailInput"
-                    name="email"
                     type="email"
-                    ref={register({ required: true, maxLength: 255 })}
+                    {...register('email', { required: true, maxLength: 255 })}
                     className={`${FormStyles.flatInputText} ${errors.email && FormStyles.flatInputTextError}`}
                     required
                   />
@@ -114,9 +116,8 @@ const RegisterPage: NextPage = () => {
                   Mot de passe
                   <input
                     id="passwordInput"
-                    name="password"
                     type="password"
-                    ref={register({ required: true, minLength: 6 })}
+                    {...register('password', { required: true, minLength: 6 })}
                     className={`${FormStyles.flatInputText} ${errors.password && FormStyles.flatInputTextError}`}
                     required
                   />
@@ -137,9 +138,8 @@ const RegisterPage: NextPage = () => {
                   Confirmation du mot de passe
                   <input
                     id="confirmPasswordInput"
-                    name="password_confirmation"
                     type="password"
-                    ref={register({ required: true, minLength: 6 })}
+                    {...register('password_confirmation', { required: true, minLength: 6 })}
                     className={`${FormStyles.flatInputText} ${
                       errors.password_confirmation && FormStyles.flatInputTextError
                     }`}
