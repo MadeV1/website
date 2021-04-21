@@ -19,7 +19,7 @@
     "next-auth": "^3.14.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-hook-form": "^6.15.4",
+    "react-hook-form": "^7.2.1",
     "sass": "^1.32.5",
     "zod": "^1.11.13"
   },
