@@ -5,13 +5,12 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import AuthService, { RegisterPayload } from 'services/AuthService';
 import ErrorService from 'services/ErrorService';
+import PageStyles from 'styles/Pages/Registration.module.css';
+import FormStyles from 'styles/UI/Form.module.css';
 
 import Layout from '@/components/Partials/Layout';
 import ButtonPlain from '@/components/UI/ButtonPlain';
 import Card from '@/components/UI/Card';
-
-import PageStyles from '../styles/Pages/Registration.module.css';
-import FormStyles from '../styles/UI/Form.module.css';
 
 interface AdonisError {
   field: string;

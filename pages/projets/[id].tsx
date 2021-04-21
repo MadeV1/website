@@ -1,14 +1,13 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import PageStyles from 'styles/Pages/Projects/Show.module.css';
 
 import Layout from '@/components/Partials/Layout';
 import ButtonLink from '@/components/UI/ButtonLink';
 import UserCard from '@/components/UI/UserCard';
 import { Project } from '@/types/Project';
 import api from '@/utils/api';
-
-import PageStyles from '../../styles/Pages/Projects/Show.module.css';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await api.get('/projects');

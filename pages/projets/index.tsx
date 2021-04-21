@@ -3,6 +3,8 @@ import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import PageStyles from 'styles/Pages/Projects/Index.module.css';
+import FormStyles from 'styles/UI/Form.module.css';
 
 import Layout from '@/components/Partials/Layout';
 import Button from '@/components/UI/Button';
@@ -10,9 +12,6 @@ import Pagination from '@/components/UI/Pagination/Pagination';
 import ProjectCard from '@/components/UI/ProjectCard';
 import usePagination from '@/hooks/usePagination';
 import api from '@/utils/api';
-
-import PageStyles from '../../styles/Pages/Projects/Index.module.css';
-import FormStyles from '../../styles/UI/Form.module.css';
 
 interface FormInputs {
   category: 'frontend' | 'backend' | 'fullstack';

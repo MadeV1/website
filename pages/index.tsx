@@ -1,11 +1,10 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import styles from 'styles/Pages/Homepage.module.css';
 
 import Layout from '@/components/Partials/Layout';
 import ButtonLink from '@/components/UI/ButtonLink';
 import UserCard from '@/components/UI/UserCard';
-
-import styles from '../styles/Pages/Homepage.module.css';
 
 const Index = (): JSX.Element => {
   return (

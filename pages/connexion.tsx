@@ -5,13 +5,12 @@ import { getSession } from 'next-auth/client';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import AuthService from 'services/AuthService';
+import PageStyle from 'styles/Pages/Login.module.css';
+import FormStyles from 'styles/UI/Form.module.css';
 
 import Layout from '@/components/Partials/Layout';
 import ButtonPlain from '@/components/UI/ButtonPlain';
 import Card from '@/components/UI/Card';
-
-import PageStyle from '../styles/Pages/Login.module.css';
-import FormStyles from '../styles/UI/Form.module.css';
 
 interface FormInputs {
   email: string;
