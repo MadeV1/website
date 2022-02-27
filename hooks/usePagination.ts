@@ -5,7 +5,7 @@ interface UsePaginationParams {
   maxPages: number;
 }
 
-interface UsePaginationReturn {
+export interface UsePaginationReturn {
   page: number;
   prevPage: () => void;
   nextPage: () => void;
