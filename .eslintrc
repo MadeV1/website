@@ -7,14 +7,12 @@
   "parser": "@typescript-eslint/parser",
   "plugins": ["@emotion", "@typescript-eslint", "simple-import-sort", "import", "css-modules"],
   "extends": [
-    "airbnb",
-    "airbnb/hooks",
-    "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "prettier/@typescript-eslint",
-    "prettier/react",
+    "eslint:recommended",
     "plugin:prettier/recommended",
-    "plugin:css-modules/recommended"
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:prettier/recommended",
+    "plugin:@next/next/recommended"
   ],
   "rules": {
     "@emotion/no-vanilla": "error",
@@ -29,23 +27,13 @@
     "import/no-duplicates": "error",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "react/button-has-type": "off",
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error", { "functions": false, "classes": false, "variables": true }],
     "react/jsx-props-no-spreading": "off",
-    "jsx-a11y/anchor-is-valid": "off",
-    "jsx-a11y/label-has-associated-control": [
-      2,
-      {
-        "controlComponents": ["Field"],
-        "assert": "both",
-        "depth": 3
-      }
-    ],
-    "css-modules/no-unused-class": "off"
+    "jsx-a11y/anchor-is-valid": "off"
   },
   "settings": {
     "import/resolver": {
