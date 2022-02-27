@@ -11,6 +11,7 @@ import FormStyles from 'styles/UI/Form.module.css';
 import Layout from '@/components/Partials/Layout';
 import ButtonPlain from '@/components/UI/ButtonPlain';
 import Card from '@/components/UI/Card';
+import FlatInput from '@/components/UI/Form/FlatInput';
 
 interface FormInputs {
   email: string;
@@ -28,7 +29,7 @@ const ConnexionPage: NextPage = () => {
 
   const onFormSubmit = async (data: FormInputs) => {
     const response = await AuthService.signIn(data.email, data.password);
-    if (!response.ok) {
+    if (response && !response.ok) {
       setLoginError(response.error);
     } else {
       router.push('/profil');
@@ -49,31 +50,22 @@ const ConnexionPage: NextPage = () => {
                 <p className={FormStyles.textError}>Informations de connexion invalides. Veuillez réessayer</p>
               )}
               <div className={FormStyles.stackedInputs}>
-                <label htmlFor="pseudonymInput" className={FormStyles.label}>
-                  Email
-                  <input
-                    id="emailInput"
-                    type="email"
-                    {...register('email', { required: true, minLength: 3 })}
-                    className={`${FormStyles.flatInputText}`}
-                    required
-                  />
-                </label>
-                <label htmlFor="passwordInput" className={FormStyles.label}>
-                  Mot de passe
-                  <input
-                    id="passwordInput"
-                    type="password"
-                    {...register('password', { required: true, minLength: 6 })}
-                    className={`${FormStyles.flatInputText} ${errors.password && FormStyles.flatInputTextError}`}
-                    required
-                  />
-                  {errors?.password && (
-                    <p className={FormStyles.textError}>
-                      Ce champ est requis et doit être d&apos;une longueur minimale de 6 caractères.
-                    </p>
-                  )}
-                </label>
+                <FlatInput
+                  label="Adresse mail"
+                  type="email"
+                  required
+                  {...register('email', { required: true, minLength: 3 })}
+                  validationError={errors.password && 'Veuillez fournir une adresse mail valide.'}
+                />
+                <FlatInput
+                  label="Mot de passe"
+                  type="password"
+                  required
+                  {...register('password', { required: true, minLength: 6 })}
+                  validationError={
+                    errors.password && 'Ce champ est requis et doit être d&apos;une longueur minimale de 6 caractères.'
+                  }
+                />
                 <ButtonPlain type="submit">Se connecter</ButtonPlain>
               </div>
             </Card>
