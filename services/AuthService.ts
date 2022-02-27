@@ -11,20 +11,13 @@ export interface RegisterPayload {
   password_confirmation: string;
 }
 
-interface SignInResponse {
-  error: string | undefined;
-  status: number;
-  ok: boolean;
-  url: string | null;
-}
-
 export default {
-  async register(data: RegisterPayload): Promise<void> {
+  async register(data: RegisterPayload) {
     await api.post('/register', data);
     await api.post<User>('login', { email: data.email, password: data.password });
-    signIn('credentials', { email: data.email, password: data.password, callbackUrl: '/' });
+    return signIn('credentials', { email: data.email, password: data.password, callbackUrl: '/' });
   },
-  async signIn(email: string, password: string): Promise<SignInResponse> {
+  async signIn(email: string, password: string) {
     return signIn('credentials', { email, password, redirect: false });
   },
 };
